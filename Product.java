@@ -1,32 +1,46 @@
-public class Product
-{
-	String pcode;
+class Product
+{	 
 	String pname;
+	String pcode;
 	int price;
-	public Product(String pcode,String pname,int price)
+	Product(String a,String b,int c)
 	{
-		this.pcode=pcode;
-		this.pname=pname;
-		this.price=price;
+		pname=a;
+		pcode=b;
+		price=c;
 	}
-	public static void findLowest(Product[] products)
+	void display()
 	{
-		Product minProduct=products[0];
-		for(Product p:products)
+		System.out.println("product_name="+pname+"product_code="+pcode+"product_price="+price);
+	}
+	void findLowest(Product p1,Product p2,Product p3)
+	{
+		Product lowest=p1;
+		if(p2.price<lowest.price)
 		{
-			if(p.price<minProduct.price)
-			{
-				minProduct=p;
-			}
+			lowest=p2;
 		}
-		System.out.println("Lowest priced product ID is :"+minProduct.pcode);
+		if(p3.price<lowest.price)
+		{
+			lowest=p3;
+		}
+		System.out.println("product with lowest price");
+		System.out.println("product name:"+pname);
+		System.out.println("product id:"+pcode);
+		System.out.println("product price:"+price);					
 	}
+}	
+class Productdemo
+{ 
 	public static void main(String[] args)
 	{
-		Product[] products={
-		new Product("A123","TV",200),new Product("B123","RADIO",2100),new Product("C123","DVD",300)
-		};
-		findLowest(products);
+		Product obj1=new Product("a123","tv",4000);
+		Product obj2=new Product("b123","ac",5000);
+		Product obj3=new Product("c123","fan",4500);
+		obj1.display();
+		obj2.display();
+		obj3.display();
+		obj1.findLowest(obj1,obj2,obj3);
 	}
-	
 }
+
